@@ -23,20 +23,25 @@ class DetailMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         b = intent?.extras
-        val charHouse = b?.getString("house")
+        val i = b?.getString("id")
 //        val id = "9e3f7ce4-b9a7-4244-b709-dae5c1f1d4a8"
 
-        Log.d(TAG, charHouse.toString())
+        Log.d(TAG, i.toString())
         Log.d("Log Bundle", b.toString())
 
-        Repository.instances.getDetail(charHouse).enqueue(object : Callback<MyModel> {
+
+
+        Repository.instances.getDetail(i).enqueue(object : Callback<MyModel> {
             override fun onResponse(call: Call<MyModel>, response: Response<MyModel>) {
-                binding.accountNameTopDetail.text = response.body()?.name
-                binding.accountNameBottomDetail.text = response.body()?.name
-                binding.captionBottomDetail.text = response.body()?.house
+//                binding.accountNameTopDetail.text = response.body()?.name
+//                binding.accountNameBottomDetail.text = response.body()?.name
+//                binding.captionBottomDetail.text = response.body()?.house
 
                 Glide.with(this@DetailMainActivity).load(imageUrl).into(binding.imageDetail)
                 Glide.with(this@DetailMainActivity).load(imageUrl).into(binding.profileImage)
+
+
+
             }
 
             override fun onFailure(call: Call<MyModel>, t: Throwable) {

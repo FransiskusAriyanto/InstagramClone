@@ -21,11 +21,17 @@ class ExploreAdapter(private val dataset: ArrayList<MyModel>, private val contex
                 Glide.with(itemView).load(myModel.image).into(imageExplore)
 
                 cvExplore.setOnClickListener {
-                    var charHouse = Intent(context, DetailMainActivity::class.java).apply {
-                        putExtra("house", myModel.house)
+                    var i = Intent(context, DetailMainActivity::class.java).apply {
+                        putExtra("id", myModel.id)
                     }
-                    context.startActivity(charHouse)
+                    context.startActivity(i)
                 }
+
+
+//                val intent = Intent(context, DetailMainActivity::class.java).apply {
+//                    putExtra(myModel.id, myModel.id)
+//                }
+//                context.startActivity(intent)
 
 
             }

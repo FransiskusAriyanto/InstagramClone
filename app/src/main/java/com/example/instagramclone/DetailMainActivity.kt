@@ -17,10 +17,15 @@ class DetailMainActivity : AppCompatActivity() {
     private var b: Bundle? = null
     var imageUrl = "https://ik.imagekit.io/hpapi/harry.jpg"
     var myId = "9e3f7ce4-b9a7-4244-b709-dae5c1f1d4a8"
+    var name = "Harry Potter"
+    var house = "Gryffindor"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         b = intent?.extras
         val i = b?.getString("id")
@@ -33,13 +38,16 @@ class DetailMainActivity : AppCompatActivity() {
 
         Repository.instances.getDetail(i).enqueue(object : Callback<MyModel> {
             override fun onResponse(call: Call<MyModel>, response: Response<MyModel>) {
-//                binding.accountNameTopDetail.text = response.body()?.name
-//                binding.accountNameBottomDetail.text = response.body()?.name
-//                binding.captionBottomDetail.text = response.body()?.house
+//                binding.accountNameTopDetail.text = response.body()?.id
+//                binding.accountNameBottomDetail.text = response.body()?.id
+//                binding.captionBottomDetail.text = response.body()?.id
+
+                binding.accountNameTopDetail.text = name
+                binding.accountNameBottomDetail.text = name
+                binding.captionBottomDetail.text = house
 
                 Glide.with(this@DetailMainActivity).load(imageUrl).into(binding.imageDetail)
                 Glide.with(this@DetailMainActivity).load(imageUrl).into(binding.profileImage)
-
 
 
             }

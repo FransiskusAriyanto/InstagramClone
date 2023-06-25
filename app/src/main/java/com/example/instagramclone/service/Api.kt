@@ -11,7 +11,7 @@ interface Api {
 
 
     @GET("character{id}")
-    fun getDetail(@Path("id") id: String?) : Call<MyModel>
+    fun getDetail(@Path("id") type: String?) : Call<MyModel>
 
 //    @GET("character{id}")
 //    fun getDetail(@Query("id") id: String?) : Call<List<MyModel>>

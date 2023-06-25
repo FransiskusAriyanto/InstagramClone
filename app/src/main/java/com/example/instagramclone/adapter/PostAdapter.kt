@@ -19,7 +19,7 @@ class PostAdapter(private val dataset: ArrayList<MyModel>) :
 
                 accountNameTopPost.text = myModel.name
                 accountNameBottomPost.text = myModel.name
-                captionBottomPost.text = myModel.name
+                captionBottomPost.text = myModel.house
             }
         }
     }

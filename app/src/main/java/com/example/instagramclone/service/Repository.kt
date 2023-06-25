@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object Repository {
 
     private const val baseURL = "https://hp-api.onrender.com/api/"
-    val instance: Api by lazy {
+    val instances: Api by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(baseURL)
             .addConverterFactory(GsonConverterFactory.create())

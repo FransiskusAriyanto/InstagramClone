@@ -35,7 +35,7 @@ class ExploreFragment : Fragment() {
         binding.rvExplore.setHasFixedSize(true)
         binding.rvExplore.layoutManager = GridLayoutManager(context, 2)
 
-        Repository.instance.gelAllData().enqueue(object : Callback<List<MyModel>> {
+        Repository.instances.gelAllData().enqueue(object : Callback<List<MyModel>> {
             override fun onResponse(call: Call<List<MyModel>>, response: Response<List<MyModel>>) {
                 response.body()?.let { list.addAll(it) }
                 val exploreAdapter = ExploreAdapter(list, requireContext())
@@ -43,7 +43,7 @@ class ExploreFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<MyModel>>, t: Throwable) {
-                TODO("Not yet implemented")
+
             }
 
         })

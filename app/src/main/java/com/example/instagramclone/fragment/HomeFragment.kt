@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
         binding.rvPost.setHasFixedSize(true)
         binding.rvPost.layoutManager = LinearLayoutManager(context)
 
-        Repository.instance.gelAllData().enqueue(object : Callback<List<MyModel>>{
+        Repository.instances.gelAllData().enqueue(object : Callback<List<MyModel>>{
             override fun onResponse(call: Call<List<MyModel>>, response: Response<List<MyModel>>) {
                 response.body()?.let { list.addAll(it) }
                 postAdapter = PostAdapter(list)
